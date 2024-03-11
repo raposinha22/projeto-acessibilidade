@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site para Pessoas Cegas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        main {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Site para Pessoas Cegas</h1>
+    </header>
+    <nav>
+        <div class="container">
+            <a href="#content">Pular para o conteúdo</a>
+        </div>
+    </nav>
+    <main id="content">
+        <div class="container">
+            <h2>Sobre nós</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec sapien eu felis ultrices consequat.
+            </p>
+            <h2>Nossa equipe</h2>
+            <p>
+                Aqui está uma foto de nossa equipe:
+            </p>
+            <!-- Para fins de demonstração, a imagem será omitida, pois o Monaca não suporta diretamente imagens externas -->
+            <!-- <img src="equipe.jpg" alt="Foto da equipe"> -->
+            <h2>Nossos serviços</h2>
+            <ul>
+                <li>Design Web</li>
+                <li>Desenvolvimento Web</li>
+                <li>Testes de Acessibilidade</li>
+            </ul>
+            <h2>Contato</h2>
+            <p>
+                Telefone: 123-456-7890<br>
+                Email: contato@meusite.com
+            </p>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Site para Pessoas Cegas. Todos os direitos reservados.</p>
+            <button id="btnSpeak">Ouvir Conteúdo</button>
+        </div>
+    </footer>
+
+    <script>
+        // Função para ler o conteúdo da página usando a API de fala do Monaca
+        function speakContent() {
+            const content = document.querySelector('main').innerText;
+            // Utiliza a API do Monaca para a função de fala
+            window.Monaca && window.Monaca.speech.speak(content);
+        }
+
+        // Adiciona um evento de clique ao botão para chamar a função speakContent
+        document.getElementById('btnSpeak').addEventListener('click', speakContent);
+    </script>
+</body>
+</html>
